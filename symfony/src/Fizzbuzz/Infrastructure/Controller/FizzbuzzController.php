@@ -46,63 +46,6 @@ class FizzbuzzController
             ]);
         }
 
-        /*
-        // TODO: Redo validation
-        try {
-            $int1 = new Number($int1);
-        }
-        catch(TypeError | \Exception $e) {
-            return new JsonResponse([
-                "code" => 200, // TODO: HTTP code
-                "data" => "int1 must be a positive number."
-            ]);
-        }
-
-
-        try {
-            $int2 = new Number($int2);
-        }
-        catch(TypeError | \Exception $e) {
-            return new JsonResponse([
-                "code" => 200, // TODO: HTTP code
-                "data" => "int2 must be a positive number."
-            ]);
-        }
-
-
-        try {
-            $limit = new Number($limit);
-        }
-        catch(TypeError | \Exception $e) {
-            return new JsonResponse([
-                "code" => 200, // TODO: HTTP code
-                "data" => "limit must be a positive number."
-            ]);
-        }
-
-
-        try {
-            $str1 = new Word($str1);
-        }
-        catch(TypeError | \Exception $e) {
-            return new JsonResponse([
-                "code" => 200, // TODO: HTTP code
-                "data" => "str1 must be a string."
-            ]);
-        }
-
-
-        try {
-            $str2 = new Word($str2);
-        }
-        catch(TypeError | \Exception $e) {
-            return new JsonResponse([
-                "code" => 200, // TODO: HTTP code
-                "data" => "str2 must be a string."
-            ]);
-        }
-        */
-
         try {
             $rule1 = new Rule(new Number($int1), new Word($str1));
             $rule2 = new Rule(new Number($int2), new Word($str2));
@@ -117,7 +60,7 @@ class FizzbuzzController
         catch(Exception $e) {
             return new JsonResponse([
                 "code" => Response::HTTP_BAD_REQUEST,
-                "data" => "Something wrong happened."// $e->getMessage()
+                "data" => $e->getMessage()
             ]);
         }
     }

@@ -40,7 +40,6 @@ class UpsertRequest implements UpsertRequestInterface
             ]);
         }
         catch(\Exception $e) {
-            // dump($e->getMessage());
             // TODO:
         }
     }

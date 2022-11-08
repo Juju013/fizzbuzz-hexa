@@ -20,7 +20,7 @@ class FizzbuzzCustomHandlerTest extends KernelTestCase
             $rule1 = new Rule(new Number(7), new Word("test"));
             $rules = new RuleCollection([ $rule1 ]);
             $fizzbuzzHandler->addRule($rule1);
-            self::assertSame($rules->getValues(), $fizzbuzzHandler->getRules());
+            $this->assertSame($rules->getValues(), $fizzbuzzHandler->getRules());
         }
         catch(\Exception $e) {
         }
@@ -36,10 +36,10 @@ class FizzbuzzCustomHandlerTest extends KernelTestCase
             $rule2 = new Rule(new Number(5), new Word("test2"));
             $fizzbuzzHandler->addRule($rule1);
             $fizzbuzzHandler->addRule($rule2);
-            self::assertSame("test1", $fizzbuzzHandler->getReplacement(new Number(3)));
-            self::assertSame("test2", $fizzbuzzHandler->getReplacement(new Number(5)));
-            self::assertSame("test1test2", $fizzbuzzHandler->getReplacement(new Number(15)));
-            self::assertSame(8, $fizzbuzzHandler->getReplacement(new Number(8)));
+            $this->assertSame("test1", $fizzbuzzHandler->getReplacement(new Number(3)));
+            $this->assertSame("test2", $fizzbuzzHandler->getReplacement(new Number(5)));
+            $this->assertSame("test1test2", $fizzbuzzHandler->getReplacement(new Number(15)));
+            $this->assertSame(8, $fizzbuzzHandler->getReplacement(new Number(8)));
         }
         catch(\Exception $e) {
         }
@@ -55,7 +55,7 @@ class FizzbuzzCustomHandlerTest extends KernelTestCase
             $rule2 = new Rule(new Number(5), new Word("test2"));
             $fizzbuzzHandler->addRule($rule1);
             $fizzbuzzHandler->addRule($rule2);
-            self::assertSame("12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz1617Fizz19Buzz", $fizzbuzzHandler->generate(new Number(20)));
+            $this->assertSame("12Fizz4BuzzFizz78FizzBuzz11Fizz1314FizzBuzz1617Fizz19Buzz", $fizzbuzzHandler->generate(new Number(20)));
         }
         catch(\Exception $e) {
         }

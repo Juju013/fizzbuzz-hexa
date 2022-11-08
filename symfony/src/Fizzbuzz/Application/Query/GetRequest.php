@@ -24,7 +24,7 @@ class GetRequest implements GetRequestInterface
             SELECT route, method, queries, score
                 FROM requests
                 WHERE
-                    route != $except
+                    route != '$except'
                 ORDER BY score DESC
                 LIMIT 1
             SQL;
@@ -32,11 +32,12 @@ class GetRequest implements GetRequestInterface
         try {
             $results = $this->connection->fetchAssociative($queryFormat, []);
             if ($results) {
-                return new Request($results["route"], $results["method"], $results["queries"], $results["score"]);
+                $queries = $results["queries"] ? unserialize($results["queries"]) : [];
+                return new Request($results["route"], $results["method"], $queries, $results["score"]);
             }
             return null;
         }
-        catch(\Exception) {
+        catch(\Exception $e) {
             // TMP, should handle it differently
             return null;
         }

@@ -1,0 +1,10 @@
+
+fizzbuzz:
+    path: /api/fizzbuzz
+    controller: App\Fizzbuzz\Infrastructure\Controller\FizzbuzzController::getFizzbuzz
+    methods: [ GET ]
+
+stats:
+    path: /api/stats
+    controller: App\Fizzbuzz\Infrastructure\Controller\RequestController::getStats
+    methods: [ GET ]

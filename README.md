@@ -44,8 +44,8 @@ composer install
 The web app should be accessible at **localhost:8088**
 
 And the database with :
-- **user**: postgres
-- **password**: password
+- **user**: root
+- **password**: root
 - **domain**: 127.0.0.1
-- **port**: 15432
-- **database**: database  
+- **port**: 3306
+- **database**: fizzbuzz 
